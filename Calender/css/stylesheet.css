@@ -18,7 +18,7 @@ font-family: sans-serif;
 .calendar{
   margin:auto;
   width: 700px;
-  height: auto; #auto karna hai
+  height: auto;
   box-shadow: 0px 0px 15px 3px rgb(0,0,0,0.2);
   background-color: #A0D3E7;
 }
@@ -50,21 +50,26 @@ font-family: sans-serif;
   width: 14.28%;
 }
 
-.dates{
+/*.dates{*/
 
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  padding: 20px 15px;
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*  text-align: center;*/
+/*  padding: 20px 15px;*/
+/*}*/
+
+/*.dates div{*/
+
+/*  width: 14.28%;*/
+/*  margin-bottom: 15px;*/
+
+
+/*}*/
+
+td{
+  padding: 10px;
 }
 
-.dates div{
-
-  width: 14.28%;
-  margin-bottom: 15px;
-
-
-}
 
 .prev,.next{
 
