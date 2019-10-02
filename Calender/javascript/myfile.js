@@ -2,78 +2,89 @@ var dt = new Date();
 let x = new Array(12*200);
 
 var month_name = ["Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec"];
-document.getElementById("curr_date").innerHTML = dt.toDateString();
-
-var y = dt.getMonth();
-document.getElementById("curr_month").innerHTML = month_name[y];
-base();
-populate(y, dt.getFullYear());
-// var cells  ="";
-// for(i=1;i<=30;i++)
-// {
-//   cells += "<div>" + i +"</div>";
-// }
-//
-// document.getElementsByClassName('dates')[0].innerHTML = cells;
 
 
-// 1919-2119
-function base() {
-  for (let i = 0; i < x.length; i++) {
-    x[i] = new Array(31);
-    for (let j = 0; j < 31; j++) {
-      var d = getDays(i % 12, 1919 + parseInt(i / 12));
-      if (j < d)
-        x[i][j] = 0;
-      else
-        x[i][j] = 3;
+function setReminder()
+{
+  console.log('hello');
+}
+
+function loadDate(){
+
+  document.getElementById("curr_date").innerHTML = dt.toDateString();
+  var x = dt.getMonth();
+  document.getElementById("curr_month").innerHTML = month_name[x];
+
+
+  dt.setDate(1);
+  var m = dt.getDay();
+  var endDate = new Date(
+    dt.getFullYear(),
+    dt.getMonth()+1,
+    0
+  ).getDate();
+
+  var prevDate = new Date(
+    dt.getFullYear(),
+    dt.getMonth(),
+    0
+  ).getDate();  // to get the last date of the previous month
+
+  var nextDate = new Date(
+    dt.getFullYear(),
+    dt.getMonth()+1
+  ).getDate();
+
+  //console.log(nextDate);
+
+  var today = new Date();
+
+  var cells  ="";
+
+  var flag=0;
+  for(x=m ; x>0;x--)
+  {
+    cells+= "<div class ='prevdate'>" + (prevDate - x + 1) + "</div>";
+    flag++;
+  }
+
+
+  for(i=1;i<=endDate;i++)
+  {
+    if(i==today.getDate() && dt.getFullYear()== today.getFullYear() && dt.getMonth()== today.getMonth())
+    {
+      cells += "<div class='today'>" + i +"</div>";
+      flag++;
+    }
+    else{
+    cells += "<div class='currdate'>" + i +"</div>";
+    flag++;
     }
   }
-}
 
-function getDays(month, year){
-  var d = new Date(year, month+1, 0);
-  return d.getDate();
-}
+  //console.log(flag);
+  if(flag<35)
+  {
 
-function month_details(month, year){
-  var idx=(year-1919)*12+(month%12);
-  return x[idx];
-}
-
-function populate(month, year){
-  var body = document.getElementById("table");
-  let f="";
-  var d = new Date();
-  d.setDate(1);d.setMonth(month);d.setFullYear(year);
-  const rows = Math.ceil((d.getDay() + 1 + getDays(month, year))/7);
-  let temp=new Array(rows*7);
-  var l= 0;
-  for(let i = 0;i<temp.length;i++){
-    if(i<d.getDay()||l>=31)
-      temp[i]=3;
-    else
-      temp[i]=month_details(month, year)[l++];
-  }
-  l=0;
-  let dt=1;
-  for(let i=0;i<rows;i++){
-    f+="<tr>";
-    for(let j=0;j<7;j++){
-      var current = new Date();
-      current.setHours(0,0,0,0);
-      var test = new Date(year, month, dt);
-      if(temp[l]===3)
-        f+="<td></td>";
-      else if(current.getTime() === test.getTime())
-        f+="<td style='background:#a4aec1'>" + dt++ + "</td>";
-      else if (temp[l]===1)
-        f+="<td style='background:red'>" + dt++ + "</td>";
-      else
-        f+='<td>' + dt++ + '</td>';
-      l++;
+    for(z=0;z<35-flag;z++)
+    {
+      cells+= "<div class='prevdate'>" + (nextDate+z) +"</div>";
     }
-    f+="</tr>";
   }
-  body.innerHTML=f;
+
+  document.getElementsByClassName('dates')[0].innerHTML = cells;
+}
+
+
+function changeMonth(para)
+{
+  if(para == 'prev')
+  {
+    dt.setMonth(dt.getMonth()-1);
+  }
+  else {
+    dt.setMonth(dt.getMonth()+1)
+  }
+  loadDate();
+
 }

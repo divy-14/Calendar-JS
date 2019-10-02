@@ -50,21 +50,22 @@ font-family: sans-serif;
   width: 14.28%;
 }
 
-/*.dates{*/
 
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  text-align: center;*/
-/*  padding: 20px 15px;*/
-/*}*/
+.dates{
 
-/*.dates div{*/
+ display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 20px 15px;
+}
 
-/*  width: 14.28%;*/
-/*  margin-bottom: 15px;*/
+.dates div{
+
+  width: 14.28%;
+  margin-bottom: 15px;
 
 
-/*}*/
+}
 
 td{
   padding: 10px;
@@ -95,4 +96,27 @@ td{
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+.prevdate{
+  color: grey;
+}
+
+.prevdate:hover{
+
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.currdate:hover , .today:hover{
+  background-color: cyan;
+  cursor: pointer;
+  color:black;
+}
+
+.today{
+
+  background-color:#0F95C9;
+  color:WHITE;
+
 }
