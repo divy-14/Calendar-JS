@@ -1,5 +1,8 @@
 var dt = new Date();
+let x = new Array(12*200);
+
 var month_name = ["Jan", "Feb", "Mar", "Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov","Dec"];
+
 
 function setReminder()
 {
@@ -83,4 +86,5 @@ function changeMonth(para)
     dt.setMonth(dt.getMonth()+1)
   }
   loadDate();
+
 }
