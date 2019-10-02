@@ -50,6 +50,7 @@ font-family: sans-serif;
   width: 14.28%;
 }
 
+
 .dates{
 
   display: flex;
@@ -90,4 +91,27 @@ font-family: sans-serif;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+.prevdate{
+  color: grey;
+}
+
+.prevdate:hover{
+
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.currdate:hover , .today:hover{
+  background-color: cyan;
+  cursor: pointer;
+  color:black;
+}
+
+.today{
+
+  background-color:#0F95C9;
+  color:WHITE;
+
 }

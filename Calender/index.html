@@ -8,12 +8,12 @@
   </head>
 
 
-  <body>
+  <body onload="loadDate()">
     <div class="parent">
       <div class="calendar">
 
         <div class="month">
-          <div class="prev">
+          <div class="prev" onclick="changeMonth('prev')">
             <span>&#8249</span>
           </div>
           <div class="display1">
@@ -21,7 +21,7 @@
             <p id= "curr_date"></p>
 
           </div>
-          <div class="next">
+          <div class="next" onclick="changeMonth('next')">
             <span>&#8250</span>
 
           </div>
@@ -38,7 +38,7 @@
         </div>
 
 
-        <div class="dates">
+        <div class="dates" onclick = "setReminder()">
 
         </div>
 
